@@ -45,15 +45,16 @@
 	//display letters written in id=name type text
 	document.getElementById("name").onkeyup = function() {
 		var s = this.value.split('');
+		var letters = /^[A-Za-z]+$/;
 		var img = '';
 		var dct = {};
 		for (var each=0; each<s.length; each++) {
-			if (s[each] !== ' ') {
+			if(s[each].match(letters)) {
 				dct[s[each].toLowerCase()] = '<img src=' + 'img/letImg/' + s[each].toLowerCase()+'.jpg' + '>';
 				//dct[s[each].toLowerCase()] = 'img/letImg/' + s[each].toLowerCase()+'.jgp';
 				img += dct[s[each].toLowerCase()];
 			}
-			else {
+			else if (s[each] === ' ') {
 				img += s[each];
 				}
 		}
