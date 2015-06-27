@@ -48,13 +48,17 @@
 		var img = '';
 		var dct = {};
 		for (var each=0; each<s.length; each++) {
-			dct[s[each].toLowerCase()] = '<img src=' + 'img/letImg/' + s[each].toLowerCase()+'.jpg' + '>';
-			//dct[s[each].toLowerCase()] = 'img/letImg/' + s[each].toLowerCase()+'.jgp';
-			img += dct[s[each].toLowerCase()];
+			if (s[each] !== ' ') {
+				dct[s[each].toLowerCase()] = '<img src=' + 'img/letImg/' + s[each].toLowerCase()+'.jpg' + '>';
+				//dct[s[each].toLowerCase()] = 'img/letImg/' + s[each].toLowerCase()+'.jgp';
+				img += dct[s[each].toLowerCase()];
+			}
+			else {
+				img += s[each];
+				}
 		}
 		document.getElementById("output").innerHTML = img;
 	}
-
 	</script>
 
 </body>
